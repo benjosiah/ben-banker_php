@@ -8,4 +8,4 @@ A PHP package that help payment integration using flutterwave's  Rave API
 
 #install package 
 
-`composer require ben-banker_php` 
+`composer require ben/banker_php`
