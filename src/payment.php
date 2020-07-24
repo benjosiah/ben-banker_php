@@ -1,7 +1,7 @@
 <?php
 
-
 namespace cardify;
+
 require('vendor/autoload.php');
 
 use Env\Getkeys;
@@ -14,16 +14,12 @@ class Payment {
     private $ENC_KEY;
     private $url;
 
-    
-
     public function __construct() {
-        $env= new Getkeys();
-        $this->SEC_KEY= $env->env('SEC_KEY');
-        $this->PBFPubKey= $env->env('PBFPubKey');
-        $this->ENC_KEY= $env->env('ENC_KEY');
-        $this->url= $env->env('ENDPOINT_URL');
-        
-        
+        $env = new Getkeys();
+        $this->SEC_KEY = $env->env('SEC_KEY');
+        $this->PBFPubKey = $env->env('PBFPubKey');
+        $this->ENC_KEY = $env->env('ENC_KEY');
+        $this->url = $env->env('ENDPOINT_URL');
     }
 
     private function getKey($seckey){
@@ -48,14 +44,14 @@ class Payment {
     
     public function cardPaymet($data){
 
-        $reqStri=$this->encrypt3Des($data, $this->ENC_KEY);
+        $reqStri = $this->encrypt3Des($data, $this->ENC_KEY);
 
         $details=[
-            'PBFPubKey'=>$this->PBFPubKey,
-            'client'=>$reqStri
+            'PBFPubKey' => $this->PBFPubKey,
+            'client' => $reqStri
         ];
 
-        $body=json_encode($details);
+        $body = json_encode($details);
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => "$this->url/charges?type=card",
@@ -77,14 +73,10 @@ class Payment {
     
         curl_close($curl);
         return $response;
-
-
-
     }
 
     public function ussdPayment($data){
-        $details=json_encode($data);
-
+        $details = json_encode($data);
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -112,7 +104,7 @@ class Payment {
     
     public function accountPayment($data){
 
-        $details=json_encode($data);
+        $details = json_encode($data);
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -139,7 +131,7 @@ class Payment {
 
     public function postOTP($data){
 
-        $details=json_encode($data);
+        $details = json_encode($data);
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -163,12 +155,4 @@ class Payment {
         curl_close($curl);
         return $response;
     }
-
-
-          
-
-
-
-
-
 }
