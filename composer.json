@@ -13,6 +13,6 @@
             "Env\\":"src"
         }
     },
-    "license": "0BSD",
-    "minimum-stability": "dev"
+    "license": "0BSD"
+    
 }
