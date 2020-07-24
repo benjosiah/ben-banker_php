@@ -1,6 +1,9 @@
 <?php
+
 namespace Env;
+
 require_once realpath(__DIR__. '/../vendor/autoload.php');
+
 use Dotenv\Dotenv;
 
 class Getkeys{
@@ -11,11 +14,10 @@ class Getkeys{
 
     function env($name)
     {
-        $dotenv=Dotenv::createImmutable(__DIR__);
+        $dotenv = Dotenv::createImmutable(__DIR__);
         $dotenv->load();
-        $key=$_SERVER[$name];
+        $key = $_SERVER[$name];
         return $key;
-
     }
 
 }
