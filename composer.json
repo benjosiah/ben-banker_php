@@ -3,7 +3,6 @@
     "description": "An online payment integration package making use of flutter wave api",
     "type": "library",
     "require": {
-        "sixlive/dotenv-editor": "dev-master",
         "vlucas/phpdotenv": "^5.0@dev",
         "phpunit/phpunit": "^7.5"
     },
