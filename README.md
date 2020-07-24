@@ -11,8 +11,35 @@ run on your terminal
 # API keys
 API keys to access the flutterwave rave API can be gotten at the flutter wave's dashboard.
 After Signing in to ypiu account, go to settings->API
+[ read more ](https://developer.flutterwave.com/docs/api-keys)
+
 # .env
 API keys should be stored be stored in the a `.env` file in the `src` directory.
+
+# Card bin verification
+
+
+
+# BVN verification
+
+
+
+
+# Get all banks
+
+
+# Account verification
+
+
+
+
+# Card payments
+
+
+
+# 
+
+
 
 
 
